@@ -1,0 +1,77 @@
+name: Android CI/CD
+
+on:
+  push:
+    branches:
+      - main  # Executa quando houver um push na branch main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 19.0.2
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '19.0.2'
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'  # Usar Node.js versão 18
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Decode keystore
+        run: echo ${{ secrets.KEYSTORE_FILE }} | base64 --decode > android/app/braguia
+
+      - name: Install Android SDK
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget tar unzip
+          wget https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip
+          unzip commandlinetools-linux-8512546_latest.zip
+          mkdir -p $ANDROID_HOME/cmdline-tools
+          mv cmdline-tools $ANDROID_HOME/cmdline-tools/latest
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --sdk_root=$ANDROID_HOME "platforms;android-30" "build-tools;30.0.3"
+
+      - name: Build APK
+        run: |
+          cd android
+          ./gradlew assembleRelease -Pandroid.injected.signing.store.file=braguia -Pandroid.injected.signing.store.password=${{ secrets.KEYSTORE_PASSWORD }} -Pandroid.injected.signing.key.alias=${{ secrets.KEY_ALIAS }} -Pandroid.injected.signing.key.password=${{ secrets.KEY_PASSWORD }}
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/app-release.apk
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download APK
+        uses: actions/download-artifact@v2
+        with:
+          name: app-release.apk
+          path: .
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+          files: app-release.apk

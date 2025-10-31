@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">BraGuia</string>
+    <string name="add_user">Add User</string>
+
+    <!-- Trails -->
+    <string name="trail_name">Viagem pelo centro de Braga</string>
+    <string name="trail_desc_title">Descrição:</string>
+    <string name="trail_desc">Visitar Braga é fazer uma viagem no tempo dentro da modernidade. Cidade antiga e de religiosidade tradicional - sempre imponente na sua riqueza e majestade - vive de mãos dadas com o empreendedorismo e espírito jovem em áreas tão vitais como a cultura, o comércio, a gastronomia, a indústria e os serviços.
+Desfrute de Braga! Daqui parta à descoberta do Gerês, do Norte de Portugal e da Galiza, mas volte… Volte porque aqui está perto de tudo.</string>
+    <string name="trail_pins_disp">Pontos de interesse disponíveis:</string>
+
+    <!-- Upgrade Premium -->
+    <string name="upgrade_title">BraGuia Premium</string>
+    <string name="upgrade_subtitle">Transforme sua viagem numa aventura única!</string>
+    <string name="upgrade_under_subtitle">Atualize agora para a versão premium</string>
+
+    <!-- Pin Fragment -->
+    <string name="premium_text">MEDIA APENAS DISPONÍVEL PARA UTILIZADORES PREMIUM. <u>CLIQUE AQUI</u> PARA SE TORNAR UM!</string>
+    <string name="latitude">LATITUDE:  </string>
+    <string name="altitude">ALTITUDE:  </string>
+    <string name="longitude">LONGITUDE:  </string>
+    <string name="audio_na">ÁUDIO NÃO DISPONÍVEL</string>
+    <string name="play">REPRODUZIR</string>
+
+</resources>

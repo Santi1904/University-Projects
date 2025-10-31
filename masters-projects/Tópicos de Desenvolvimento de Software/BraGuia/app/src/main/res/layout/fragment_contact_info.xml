@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fundo_caetaco"
+    tools:context=".ui.ContactInfoFragment">
+
+    <TextView
+        android:id="@+id/detailName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="20sp"
+        android:text="CONTACTO"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardImage"
+        android:layout_width="380dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:id="@+id/callNumber"
+            android:layout_width="136dp"
+            android:layout_height="132dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/call_me_green" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@color/appColor"
+            android:layout_marginStart="127dp"
+            android:layout_marginTop="160dp"
+            android:text="LIGAR AGORA" />
+
+    </androidx.cardview.widget.CardView>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="NOME: "
+        android:drawableLeft="@drawable/ic_person_green"
+        android:drawablePadding="3dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/setContactName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="NOME_DO_CONTACTO"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:drawableLeft="@drawable/ic_phone_green"
+        android:text="TELEMÓVEL: "
+        android:drawablePadding="2dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/setContactPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="NUMERO_TELEMOVEL"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LINK: "
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_link_green"
+        android:drawablePadding="3dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/setContactLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="LINK"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EMAIL: "
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_email_green"
+        android:drawablePadding="3dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/setContactEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="EMAIL"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/go_back_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/appColor"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="VOLTAR ATRÁS" />
+
+
+</LinearLayout>
